@@ -2452,6 +2452,12 @@
 	bitesize = 3
 	list_reagents = list("nutriment" = 7, "vitamin" = 1)
 
+/obj/item/weapon/reagent_containers/food/snacks/taco/magic
+	desc = "Take a bite?"
+	bitesize = 50
+	list_reagents = list("nutriment" = 5, "space_drugs" = 5, "lsd" = 15, "taco" = 10)
+	consume_sound = 'sound/music/taco.ogg'
+
 /obj/item/weapon/reagent_containers/food/snacks/cutlet
 	name = "cutlet"
 	desc = "A tasty meat slice."
