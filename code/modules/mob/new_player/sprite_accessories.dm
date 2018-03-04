@@ -1634,6 +1634,14 @@
 /datum/sprite_accessory/socks/black_norm
 	name = "Normal Black"
 	icon_state = "black_norm"
+    
+/datum/sprite_accessory/socks/red_norm
+	name = "Normal Red"
+	icon_state = "red_norm"
+
+/datum/sprite_accessory/socks/teal_norm
+	name = "Normal Teal"
+	icon_state = "teal_norm"
 
 /datum/sprite_accessory/socks/white_short
 	name = "Short White"
@@ -1650,6 +1658,14 @@
 /datum/sprite_accessory/socks/black_knee
 	name = "Knee-high Black"
 	icon_state = "black_knee"
+    
+/datum/sprite_accessory/socks/red_knee
+	name = "Knee-high Red"
+	icon_state = "red_knee"
+	
+/datum/sprite_accessory/socks/teal_knee
+	name = "Knee-high Teal"
+	icon_state = "teal_knee"
 
 /datum/sprite_accessory/socks/thin_knee
 	name = "Knee-high Thin"
@@ -1659,6 +1675,10 @@
 /datum/sprite_accessory/socks/striped_knee
 	name = "Knee-high Striped"
 	icon_state = "striped_knee"
+    
+/datum/sprite_accessory/socks/striped2_knee
+	name = "Knee-high Striped(Pink/Purple)"
+	icon_state = "striped2_knee"
 
 /datum/sprite_accessory/socks/rainbow_knee
 	name = "Knee-high Rainbow"
@@ -1680,6 +1700,10 @@
 /datum/sprite_accessory/socks/striped_thigh
 	name = "Thigh-high Striped"
 	icon_state = "striped_thigh"
+    
+/datum/sprite_accessory/socks/striped_thigh
+	name = "Thigh-high Striped(Pink/Purple)"
+	icon_state = "striped2_thigh"
 
 /datum/sprite_accessory/socks/rainbow_thigh
 	name = "Thigh-high Rainbow"
