@@ -8,7 +8,7 @@
 	id = "nuclear_gun"
 	req_tech = list("combat" = 5, "magnets" = 5, "powerstorage" = 5)
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 10000, MAT_GLASS = 2000, MAT_URANIUM = 4000)
+	materials = list(MAT_METAL = 10000, MAT_GLASS = 2000, MAT_URANIUM = 3000, MAT_TITANIUM = 1000)
 	build_path = /obj/item/weapon/gun/energy/gun/nuclear
 	locked = 1
 	category = list("Weapons")
@@ -29,7 +29,7 @@
 	name = "Energy Crossbow"
 	desc = "A reverse-engineered energy crossbow favored by syndicate infiltration teams and carp hunters."
 	id = "largecrossbow"
-	req_tech = list("combat" = 5, "engineering" = 3, "magnet" = 5, "syndicate" = 3)
+	req_tech = list("combat" = 5, "engineering" = 3, "magnets" = 5, "syndicate" = 3)
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 1500, MAT_URANIUM = 1500, MAT_SILVER = 1500)
 	build_path = /obj/item/weapon/gun/energy/kinetic_accelerator/crossbow/large
@@ -80,13 +80,43 @@
 	build_path = /obj/item/weapon/grenade/chem_grenade/large
 	category = list("Weapons")
 
+/datum/design/pyro_grenade
+	name = "Pyro Grenade"
+	desc = "An advanced grenade that is able to self ignite its mixture."
+	id = "pyro_Grenade"
+	req_tech = list("combat" = 4, "engineering" = 4)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 2000, MAT_PLASMA = 500)
+	build_path = /obj/item/weapon/grenade/chem_grenade/pyro
+	category = list("Weapons")
+
+/datum/design/cryo_grenade
+	name = "Cryo Grenade"
+	desc = "An advanced grenade that rapidly cools its contents upon detonation."
+	id = "cryo_Grenade"
+	req_tech = list("combat" = 3, "materials" = 3)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 2000, MAT_SILVER = 500)
+	build_path = /obj/item/weapon/grenade/chem_grenade/cryo
+	category = list("Weapons")
+
+/datum/design/adv_grenade
+	name = "Advanced Release Grenade"
+	desc = "An advanced grenade that can be detonated several times, best used with a repeating igniter."
+	id = "adv_Grenade"
+	req_tech = list("combat" = 3, "engineering" = 4)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 3000, MAT_GLASS = 500)
+	build_path = /obj/item/weapon/grenade/chem_grenade/adv_release
+	category = list("Weapons")
+
 /datum/design/tele_shield
 	name = "Telescopic Riot Shield"
 	desc = "An advanced riot shield made of lightweight materials that collapses for easy storage."
 	id = "tele_shield"
 	req_tech = list("combat" = 4, "materials" = 3, "engineering" = 4)
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 4000, MAT_GLASS = 5000, MAT_SILVER = 300)
+	materials = list(MAT_METAL = 4000, MAT_GLASS = 4000, MAT_SILVER = 300, MAT_TITANIUM = 200)
 	build_path = /obj/item/weapon/shield/riot/tele
 	category = list("Weapons")
 
@@ -212,7 +242,7 @@
 	id = "xray"
 	req_tech = list("combat" = 7, "magnets" = 5, "biotech" = 5, "powerstorage" = 4)
 	build_type = PROTOLATHE
-	materials = list(MAT_GOLD = 5000,MAT_URANIUM = 10000, MAT_METAL = 5000)
+	materials = list(MAT_GOLD = 5000,MAT_URANIUM = 8000, MAT_METAL = 5000, MAT_TITANIUM = 2000)
 	build_path = /obj/item/weapon/gun/energy/xray
 	locked = 1
 	category = list("Weapons")

@@ -1,5 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
-
 /*
 Research and Development (R&D) Console
 
@@ -100,6 +98,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				return_name = "Bananium"
 			if("mime")
 				return_name = "Tranquillite"
+			if("titanium")
+				return_name = "Titanium"
 		return return_name
 	else
 		for(var/R in subtypesof(/datum/reagent))
@@ -425,10 +425,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					message_admins("Protolathe exploit attempted by [key_name(usr, usr.client)]!")
 
 				if(g2g) //If input is incorrect, nothing happens
-					var/time_to_construct = PROTOLATHE_CONSTRUCT_DELAY * amount / coeff
+					var/new_coeff = coeff * being_built.lathe_time_factor
+					var/time_to_construct = PROTOLATHE_CONSTRUCT_DELAY * new_coeff * amount ** 0.8
 					var/enough_materials = 1
 
-					time_to_construct /= being_built.lathe_time_factor
 					add_wait_message("Constructing Prototype. Please Wait...", time_to_construct)
 					linked_lathe.busy = 1
 					flick("protolathe_n",linked_lathe)
@@ -810,6 +810,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			materials_list[++materials_list.len] = list("name" = "Diamond", "id" = MAT_DIAMOND, "amount" = linked_lathe.materials.amount(MAT_DIAMOND))
 			materials_list[++materials_list.len] = list("name" = "Bananium", "id" = MAT_BANANIUM, "amount" = linked_lathe.materials.amount(MAT_BANANIUM))
 			materials_list[++materials_list.len] = list("name" = "Tranquillite", "id" = MAT_TRANQUILLITE, "amount" = linked_lathe.materials.amount(MAT_TRANQUILLITE))
+			materials_list[++materials_list.len] = list("name" = "Titanium", "id" = MAT_TITANIUM, "amount" = linked_lathe.materials.amount(MAT_TITANIUM))
 		if(submenu == 3)
 			var/list/loaded_chemicals = list()
 			data["loaded_chemicals"] = loaded_chemicals

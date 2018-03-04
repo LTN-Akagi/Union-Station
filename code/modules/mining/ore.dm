@@ -142,6 +142,13 @@
 	refined_type = /obj/item/stack/sheet/mineral/tranquillite
 	materials = list(MAT_TRANQUILLITE=MINERAL_MATERIAL_AMOUNT)
 
+/obj/item/weapon/ore/titanium
+	name = "titanium ore"
+	icon_state = "Titanium ore"
+	points = 50
+	materials = list(MAT_TITANIUM=MINERAL_MATERIAL_AMOUNT)
+	refined_type = /obj/item/stack/sheet/mineral/titanium
+
 /obj/item/weapon/ore/slag
 	name = "slag"
 	desc = "Completely useless"
@@ -252,10 +259,3 @@
 
 /obj/item/weapon/ore/ex_act()
 	return
-
-/obj/item/weapon/ore/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/device/core_sampler))
-		var/obj/item/device/core_sampler/C = W
-		C.sample_item(src, user)
-	else
-		return ..()

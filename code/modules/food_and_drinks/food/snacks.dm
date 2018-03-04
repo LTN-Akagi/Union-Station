@@ -1,3 +1,4 @@
+#define MAX_WEIGHT_CLASS WEIGHT_CLASS_SMALL * 2
 //Food items that are eaten normally and don't leave anything behind.
 /obj/item/weapon/reagent_containers/food/snacks
 	name = "snack"
@@ -14,6 +15,7 @@
 	var/dry = 0
 	var/cooktype[0]
 	var/cooked_type = null  //for microwave cooking. path of the resulting item after microwaving
+	var/total_w_class = 0 //for the total weight an item of food can carry
 
 
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
@@ -24,7 +26,7 @@
 		if(!reagents.total_volume)
 			if(M == user)
 				to_chat(user, "<span class='notice'>You finish eating \the [src].</span>")
-			user.visible_message("<span class='notice'>[user] finishes eating \the [src].</span>")
+			user.visible_message("<span class='notice'>[M] finishes eating \the [src].</span>")
 			user.unEquip(src)	//so icons update :[
 			Post_Consume(M)
 			var/obj/item/trash_item = generate_trash(usr)
@@ -131,6 +133,10 @@
 		)
 		inaccurate = 1
 	else if(W.w_class <= WEIGHT_CLASS_SMALL && istype(src,/obj/item/weapon/reagent_containers/food/snacks/sliceable))
+		if(total_w_class > MAX_WEIGHT_CLASS)
+			// Nope, no bluespace slice food
+			to_chat(user, "<span class='warning'>Something is already in [src]!</span>")
+			return 1
 		if(!iscarbon(user))
 			return 1
 		to_chat(user, "<span class='warning'>You slip [W] inside [src].</span>")
@@ -138,6 +144,7 @@
 		if((user.client && user.s_active != src))
 			user.client.screen -= W
 		W.dropped(user)
+		total_w_class += W.w_class
 		add_fingerprint(user)
 		contents += W
 		return
@@ -194,17 +201,22 @@
 	if(isanimal(M))
 		M.changeNext_move(CLICK_CD_MELEE)
 		if(iscorgi(M))
-			if(bitecount >= 4)
+			var/mob/living/simple_animal/pet/corgi/G = M
+			if(world.time < (G.last_eaten + 300))
+				to_chat(G, "<span class='notice'>You are too full to try eating [src] right now.</span>")
+			else if(bitecount >= 4)
 				M.visible_message("[M] [pick("burps from enjoyment", "yaps for more", "woofs twice", "looks at the area where [src] was")].","<span class='notice'>You swallow up the last part of [src].</span>")
 				playsound(loc,'sound/items/eatfood.ogg', rand(10,50), 1)
 				var/mob/living/simple_animal/pet/corgi/C = M
 				C.adjustBruteLoss(-5)
 				C.adjustFireLoss(-5)
 				qdel(src)
+				G.last_eaten = world.time
 			else
 				M.visible_message("[M] takes a bite of [src].","<span class='notice'>You take a bite of [src].</span>")
 				playsound(loc,'sound/items/eatfood.ogg', rand(10,50), 1)
 				bitecount++
+				G.last_eaten = world.time
 		else if(ismouse(M))
 			var/mob/living/simple_animal/mouse/N = M
 			to_chat(N, text("<span class='notice'>You nibble away at [src].</span>"))
@@ -959,6 +971,13 @@
 	icon_state = "chinese1"
 	junkiness = 25
 	list_reagents = list("nutriment" = 1, "beans" = 3, "msg" = 4, "sugar" = 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/chinese/sweetsourchickenball
+	name = "Sweet & Sour Chicken Balls"
+	desc = "Is this chicken cooked? The odds are better than wok paper scissors."
+	icon_state = "chickenball"
+	junkiness = 25
+	list_reagents = list("nutriment" = 2, "msg" = 4, "sugar" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/chinese/tao
 	name = "Admiral Yamamoto carp"
@@ -1902,6 +1921,12 @@
 	icon_state = "watermelonslice"
 	filling_color = "#FF3867"
 
+/obj/item/weapon/reagent_containers/food/snacks/pineappleslice
+	name = "Pineapple Slices"
+	desc = "Rings of pineapple."
+	icon_state = "pineappleslice"
+	filling_color = "#e5b437"
+
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/applecake
 	name = "Apple Cake"
 	desc = "A cake centered with Apple."
@@ -2024,6 +2049,20 @@
 	desc = "A slice of the most green pizza of all pizzas not containing green ingredients."
 	icon_state = "vegetablepizzaslice"
 	filling_color = "#BAA14C"
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/hawaiianpizza
+	name = "Hawaiian Pizza"
+	desc = "Love it or hate it, this pizza divides opinions. Complete with juicy pineapple."
+	icon_state = "hawaiianpizza" //NEEDED
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/hawaiianpizzaslice
+	slices_num = 6
+	list_reagents = list("protein" = 15, "tomatojuice" = 6, "plantmatter" = 20, "pineapplejuice" = 6, "vitamin" = 5)
+
+/obj/item/weapon/reagent_containers/food/snacks/hawaiianpizzaslice
+	name = "Hawaiian pizza slice"
+	desc = "A slice of polarising pizza."
+	icon_state = "hawaiianpizzaslice"
+	filling_color = "#e5b437"
 
 /obj/item/pizzabox
 	name = "pizza box"
@@ -2197,6 +2236,10 @@
 /obj/item/pizzabox/meat/New()
 	pizza = new /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/meatpizza(src)
 	boxtag = "Meatlover's Supreme"
+
+/obj/item/pizzabox/hawaiian/New()
+	pizza = new /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/hawaiianpizza(src)
+	boxtag = "Hawaiian Feast"
 
 ////////////////////////////////FOOD ADDITIONS////////////////////////////////////////////
 
@@ -2478,3 +2521,12 @@
 	icon_state = "tatortot"
 	list_reagents = list("nutriment" = 4)
 	filling_color = "FFD700"
+
+/obj/item/weapon/reagent_containers/food/snacks/onionrings
+	name = "onion rings"
+	desc = "Onion slices coated in batter."
+	icon_state = "onionrings"
+	list_reagents = list("nutriment" = 3)
+	filling_color = "#C0C9A0"
+	gender = PLURAL
+#undef MAX_WEIGHT_CLASS
