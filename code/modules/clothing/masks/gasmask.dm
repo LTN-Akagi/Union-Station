@@ -439,7 +439,7 @@
 				aggressiveness = 4
 				phrase = 1
 			if(4)
-				to_chat(user, "<span class='notice'>You set the aggressiveness restrictor to the fifth position. Wait since when was that ever there??!!</span>")
+				to_chat(user, "<span class='notice'>You set the aggressiveness restrictor to the fifth position.</span>")
 				aggressiveness = 5
 				phrase = 19
 			if(5)
