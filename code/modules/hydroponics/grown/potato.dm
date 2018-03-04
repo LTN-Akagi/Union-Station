@@ -109,23 +109,18 @@
 		if(0 to 30)
 			update_mob()
 			power = 1
-			qdel(src)
 		if(31 to 50)
 			update_mob()
 			power = 2
-			qdel(src)
 		if(51 to 70)
 			update_mob()
 			power = 3
-			qdel(src)
 		if(71 to 90)
 			update_mob()
 			power = 5
-			qdel(src)
 		else
 			update_mob()
 			power = 8
-			qdel(src)
 	update_mob()
 	var/flashbang_turf = get_turf(src)
 	if(!flashbang_turf)
@@ -187,7 +182,6 @@
 		else
 			if(M.ear_damage >= 5)
 				to_chat(M, "<span class='warning'>Your ears start to ring!</span>")
-
 
 // Sweet Potato
 /obj/item/seeds/potato/sweet
