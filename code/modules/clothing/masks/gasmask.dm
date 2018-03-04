@@ -376,7 +376,7 @@
 					if(18)
 						to_chat(user, "<span class='notice'>You set the restrictor to: HALT! HALT! HALT! HALT!</span>")
 						phrase = 1
-            if(5)
+			if(5)
 				switch(phrase)
 					if(19)
 						to_chat(user, "<span class='notice'>You set the restrictor to: The safeword is police brutality!</span>")
@@ -439,7 +439,7 @@
 				aggressiveness = 4
 				phrase = 1
 			if(4)
-				to_chat(user, "<span class='notice'>You set the aggressiveness restrictor to the fifth position. Wait since when was that ever there??!!</span>")
+				to_chat(user, "<span class='notice'>You set the aggressiveness restrictor to the fifth position.</span>")
 				aggressiveness = 5
 				phrase = 19
 			if(5)
@@ -534,7 +534,7 @@
 			if(18)
 				phrase_text = "I am, the LAW!"
 				phrase_sound = "dredd"
-            if(19)
+			if(19)
 				phrase_text = "You call this resisting arrest??!!"
 				phrase_sound = "resistingarrest"
 			if(20)
