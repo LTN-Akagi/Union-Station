@@ -101,9 +101,6 @@
 		var/mob/M = loc
 		M.unEquip(src)
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/flashtato/ex_act(severity)
-	qdel(src) //Ensuring that it's deleted by its own explosion
-
 /obj/item/weapon/reagent_containers/food/snacks/grown/flashtato/proc/prime()
 	switch(seed.potency)
 		if(0 to 30)
