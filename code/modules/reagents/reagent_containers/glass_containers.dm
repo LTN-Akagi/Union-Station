@@ -266,6 +266,16 @@
 	possible_transfer_amounts = list(5,10,15,25,30,50,100)
 	flags = OPENCONTAINER
 
+/obj/item/weapon/reagent_containers/glass/beaker/admin
+	name = "Über beaker"
+	desc = "The best beaker."
+	icon_state = "beakerlarge"
+	materials = list(MAT_GLASS=25000)
+	volume = 1000
+	amount_per_transfer_from_this = 50
+	possible_transfer_amounts = list(5,10,15,25,30,50,100,300,500,1000)
+	flags = OPENCONTAINER
+
 /obj/item/weapon/reagent_containers/glass/beaker/vial
 	name = "vial"
 	desc = "A small glass vial. Can hold up to 25 units."
