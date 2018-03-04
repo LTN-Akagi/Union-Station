@@ -192,7 +192,7 @@
 	req_tech = list("biotech" = 4, "materials" = 4, "abductor" = 3)
 	build_path = /obj/item/weapon/scalpel/alien
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_GOLD = 500, MAT_PLASMA = 500)
+	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_PLASMA = 500, MAT_TITANIUM = 1500)
 	category = list("Medical")
 
 /datum/design/alienhemostat
@@ -202,7 +202,7 @@
 	req_tech = list("biotech" = 4, "materials" = 4, "abductor" = 3)
 	build_path = /obj/item/weapon/hemostat/alien
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_GOLD = 500, MAT_PLASMA = 500)
+	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_PLASMA = 500, MAT_TITANIUM = 1500)
 	category = list("Medical")
 
 /datum/design/alienretractor
@@ -212,7 +212,7 @@
 	req_tech = list("biotech" = 4, "materials" = 4, "abductor" = 3)
 	build_path = /obj/item/weapon/retractor/alien
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_GOLD = 500, MAT_PLASMA = 500)
+	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_PLASMA = 500, MAT_TITANIUM = 1500)
 	category = list("Medical")
 
 /datum/design/aliensaw
@@ -222,7 +222,7 @@
 	req_tech = list("biotech" = 4, "materials" = 4, "abductor" = 3)
 	build_path = /obj/item/weapon/circular_saw/alien
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 10000, MAT_SILVER = 2500, MAT_GOLD = 1000, MAT_PLASMA = 1000)
+	materials = list(MAT_METAL = 10000, MAT_SILVER = 2500, MAT_PLASMA = 1000, MAT_TITANIUM = 1500)
 	category = list("Medical")
 
 /datum/design/aliendrill
@@ -232,7 +232,7 @@
 	req_tech = list("biotech" = 4, "materials" = 4, "abductor" = 3)
 	build_path = /obj/item/weapon/surgicaldrill/alien
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 10000, MAT_SILVER = 2500, MAT_GOLD = 1000, MAT_PLASMA = 1000)
+	materials = list(MAT_METAL = 10000, MAT_SILVER = 2500, MAT_PLASMA = 1000, MAT_TITANIUM = 1500)
 	category = list("Medical")
 
 /datum/design/aliencautery
@@ -242,7 +242,7 @@
 	req_tech = list("biotech" = 4, "materials" = 4, "abductor" = 3)
 	build_path = /obj/item/weapon/cautery/alien
 	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_GOLD = 500, MAT_PLASMA = 500)
+	materials = list(MAT_METAL = 2000, MAT_SILVER = 1500, MAT_PLASMA = 500, MAT_TITANIUM = 1500)
 	category = list("Medical")
 
 /////////////////////////////////////////
@@ -258,6 +258,28 @@
 	construction_time = 40
 	materials = list(MAT_METAL = 600, MAT_GLASS = 400)
 	build_path = /obj/item/organ/internal/cyberimp/eyes/shield
+	category = list("Misc", "Medical")
+
+/datum/design/cyberimp_breather
+	name = "Breathing Tube Implant"
+	desc = "This simple implant adds an internals connector to your back, allowing you to use internals without a mask and protecting you from being choked."
+	id = "ci-breather"
+	req_tech = list("materials" = 2, "biotech" = 3)
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 35
+	materials = list(MAT_METAL = 600, MAT_GLASS = 250)
+	build_path = /obj/item/organ/internal/cyberimp/mouth/breathing_tube
+	category = list("Misc", "Medical")
+
+/datum/design/cyberimp_toolset
+	name = "Toolset Arm Implant"
+	desc = "A stripped-down version of engineering cyborg toolset, designed to be installed on subject's arm."
+	id = "ci-toolset"
+	req_tech = list("materials" = 3, "engineering" = 4, "biotech" = 4, "powerstorage" = 4)
+	build_type = PROTOLATHE | MECHFAB
+	materials = list (MAT_METAL = 2500, MAT_GLASS = 1500, MAT_SILVER = 1500)
+	construction_time = 200
+	build_path = /obj/item/organ/internal/cyberimp/arm/toolset
 	category = list("Misc", "Medical")
 
 /datum/design/cyberimp_medical_hud

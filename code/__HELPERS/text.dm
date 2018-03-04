@@ -59,6 +59,10 @@
 /proc/sanitize(var/t,var/list/repl_chars = null)
 	return html_encode(sanitize_simple(t,repl_chars))
 
+/proc/paranoid_sanitize(t)
+	var/regex/alphanum_only = regex("\[^a-zA-Z0-9# ,.?!:;()]", "g")
+	return alphanum_only.Replace(t, "#")
+
 //Runs sanitize and strip_html_simple
 //I believe strip_html_simple() is required to run first to prevent '<' from displaying as '&lt;' after sanitize() calls byond's html_encode()
 /proc/strip_html(var/t,var/limit=MAX_MESSAGE_LEN)
@@ -501,6 +505,7 @@ proc/checkhtml(var/t)
 		text = replacetext(text, "\[row\]",		"</td><tr>")
 		text = replacetext(text, "\[cell\]",	"<td>")
 		text = replacetext(text, "\[logo\]",	"<img src = ntlogo.png>")
+		text = replacetext(text, "\[time\]", "[gameTimestamp()]") // TO DO
 	if(P)
 		text = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[text]</font>"
 	else
@@ -542,4 +547,3 @@ proc/checkhtml(var/t)
 	text = replacetext(text, "<td>",					"\[cell\]")
 	text = replacetext(text, "<img src = ntlogo.png>",	"\[logo\]")
 	return text
-

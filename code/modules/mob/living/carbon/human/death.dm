@@ -19,8 +19,7 @@
 		if(isturf(loc))
 			var/atom/movable/thing = I.remove(src)
 			thing.forceMove(get_turf(src))
-			spawn()
-				thing.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),5)
+			thing.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),5)
 
 	for(var/obj/item/organ/external/E in bodyparts)
 		if(istype(E, /obj/item/organ/external/chest))
@@ -28,7 +27,7 @@
 		// Only make the limb drop if it's not too damaged
 		if(prob(100 - E.get_damage()))
 			// Override the current limb status and don't cause an explosion
-			E.droplimb(DROPLIMB_EDGE)
+			E.droplimb(DROPLIMB_SHARP)
 
 	for(var/mob/M in src)
 		if(M in stomach_contents)
@@ -38,10 +37,10 @@
 
 	if(!isSynthetic())
 		flick("gibbed-h", animation)
-		hgibs(loc, viruses, dna)
+		hgibs(loc, dna)
 	else
 		new /obj/effect/decal/cleanable/blood/gibs/robot(loc)
-		var/datum/effect/system/spark_spread/s = new /datum/effect/system/spark_spread
+		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 		s.set_up(3, 1, src)
 		s.start()
 

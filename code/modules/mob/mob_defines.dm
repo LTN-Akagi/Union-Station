@@ -100,8 +100,6 @@
 
 	var/in_throw_mode = 0
 
-	var/coughedtime = null
-
 	var/emote_cd = 0		// Used to supress emote spamming. 1 if on CD, 2 if disabled by admin (manually set), else 0
 
 	var/job = null//Living
@@ -120,6 +118,7 @@
 
 	var/has_enabled_antagHUD = 0
 	var/antagHUD = 0
+	var/can_change_intents = 1 //all mobs can change intents by default.
 
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
 	var/proc_holder_list[] = list()
@@ -144,7 +143,7 @@
 
 //List of active diseases
 
-	var/list/viruses = list() // replaces var/datum/disease/virus
+	var/list/viruses = list() // list of all diseases in a mob
 	var/list/resistances = list()
 
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
@@ -186,6 +185,8 @@
 	var/list/active_genes = list()
 
 	var/last_movement = -100 // Last world.time the mob actually moved of its own accord.
+
+	var/last_logout = 0
 
 	var/resize = 1 //Badminnery resize
 

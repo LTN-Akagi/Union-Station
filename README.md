@@ -1,12 +1,14 @@
 # Paradise
+[![Build Status](https://travis-ci.org/ParadiseSS13/Paradise.svg?branch=master)](https://travis-ci.org/ParadiseSS13/Paradise)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/paradisess13/paradise.svg)](http://isitmaintained.com/project/paradisess13/paradise "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/paradisess13/paradise.svg)](http://isitmaintained.com/project/paradisess13/paradise "Percentage of issues still open")
+[![Krihelimeter](http://www.krihelinator.xyz/badge/paradisess13/paradise)](http://www.krihelinator.xyz) 
+
 [![forthebadge](http://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/contains-technical-debt.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
 
-[Website/Wiki](https://nanotrasen.se/) - [Original Code](https://github.com/ParadiseSS13/Paradise) - [Discord](https://discord.gg/QGdJ3KC)
-
-This is a modified version of Paradise that's being hosted by LTN_Akagi.
-Anything Below this line is the ORIGINAL Readme but everything is the same for this station.
+[Website](https://nanotrasen.se/) - [Code](https://github.com/ParadiseSS13/Paradise) - [Discord](https://discordapp.com/invite/gXZMc?utm_source=Discord%20Widget&utm_medium=Connect)
 
 ---
 
@@ -137,3 +139,6 @@ Creative Commons 3.0 BY-NC-SA license
 All other assets including icons and sound files are licensed under the
 Creative Commons 3.0 BY-SA license (https://creativecommons.org/licenses/by-sa/3.0/),
 unless otherwise indicated.
+
+
+

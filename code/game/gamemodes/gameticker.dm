@@ -38,13 +38,12 @@ var/round_start_time = 0
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
 
 /datum/controller/gameticker/proc/pregame()
-	login_music = 'sound/music/grocery.ogg'
-	//login_music = pick(\
-	//'sound/music/THUNDERDOME.ogg',\
-	//'sound/music/space.ogg',\
-	//'sound/music/Title1.ogg',\
-	//'sound/music/Title2.ogg',\
-	//'sound/music/Title3.ogg',)
+	login_music = pick(\
+	'sound/music/THUNDERDOME.ogg',\
+	'sound/music/space.ogg',\
+	'sound/music/Title1.ogg',\
+	'sound/music/Title2.ogg',\
+	'sound/music/Title3.ogg',)
 	do
 		pregame_timeleft = 180
 		to_chat(world, "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
@@ -60,15 +59,14 @@ var/round_start_time = 0
 
 /datum/controller/gameticker/proc/votetimer()
 	var/timerbuffer = 0
-	if (config.enable_crewtransfer)
-		if(initialtpass == 0)
-			timerbuffer = config.vote_autotransfer_initial
-		else
-			timerbuffer = config.vote_autotransfer_interval
-		spawn(timerbuffer)
-			vote.autotransfer()
-			initialtpass = 1
-			votetimer()
+	if(initialtpass == 0)
+		timerbuffer = config.vote_autotransfer_initial
+	else
+		timerbuffer = config.vote_autotransfer_interval
+	spawn(timerbuffer)
+		vote.autotransfer()
+		initialtpass = 1
+		votetimer()
 
 /datum/controller/gameticker/proc/setup()
 	//Create and announce mode
