@@ -39,6 +39,21 @@
 	M.AdjustHallucinate(10)
 	..()
 
+/datum/reagent/taco
+	name = "Taco acid diethylamide"
+	id = "taco"
+	description = "A highly potent and delicious hallucinogenic substance."
+	reagent_state = LIQUID
+	color = "#f0ff00"
+
+/datum/reagent/taco/on_mob_life(mob/living/M)
+	M.AdjustHallucinate(100)
+	if(prob(7)) M.emote(pick("twitch","drool","giggle","sneeze","airguitar"))
+	if(prob(8))
+		to_chat(M, "<span class='notice'>You feel great!</span>")
+		M.reagents.add_reagent("methamphetamine", rand(1,2))
+	..()
+	
 /datum/reagent/space_drugs
 	name = "Space drugs"
 	id = "space_drugs"
