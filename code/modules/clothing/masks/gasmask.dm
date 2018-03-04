@@ -376,6 +376,50 @@
 					if(18)
 						to_chat(user, "<span class='notice'>You set the restrictor to: HALT! HALT! HALT! HALT!</span>")
 						phrase = 1
+            if(5)
+				switch(phrase)
+					if(19)
+						to_chat(user, "<span class='notice'>You set the restrictor to: The safeword is police brutality!</span>")
+						phrase = 20
+					if(20)
+						to_chat(user, "<span class='notice'>You set the restrictor to: You call this putting up a fight?</span>")
+						phrase = 21
+					if(21)
+						to_chat(user, "<span class='notice'>You set the restrictor to: We gotta stop meeting like this you know?</span>")
+						phrase = 22
+					if(22)
+						to_chat(user, "<span class='notice'>You set the restrictor to: I'm gonna beat the cellulites out of you!</span>")
+						phrase = 23
+					if(23)
+						to_chat(user, "<span class='notice'>You set the restrictor to: You wanted me back, so I'm back!</span>")
+						phrase = 24
+					if(24)
+						to_chat(user, "<span class='notice'>You set the restrictor to: You got what was coming for ya!</span>")
+						phrase = 25
+					if(25)
+						to_chat(user, "<span class='notice'>You set the restrictor to: You asked for it!</span>")
+						phrase = 26
+					if(26)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Listen here, I got this drum solo I've been working on!</span>")
+						phrase = 27
+					if(27)
+						to_chat(user, "<span class='notice'>You set the restrictor to: What's left after you beat the shit out of a peice of shit??!!</span>")
+						phrase = 28
+					if(28)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Not so tough now huh??!!</span>")
+						phrase = 29
+					if(29)
+						to_chat(user, "<span class='notice'>You set the restrictor to: We call this a difficulty tweak!</span>")
+						phrase = 30
+					if(30)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Sometimes wishes do come true!</span>")
+						phrase = 31
+					if(31)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Now go to the forums and cry like the little bitch you are!</span>")
+						phrase = 32
+					if(32)
+						to_chat(user, "<span class='notice'>You set the restrictor to: You call this resisting arrest??!!</span>")
+						phrase = 19
 			else
 				to_chat(user, "<span class='notice'>It's broken.</span>")
 
@@ -395,15 +439,19 @@
 				aggressiveness = 4
 				phrase = 1
 			if(4)
+				to_chat(user, "<span class='notice'>You set the aggressiveness restrictor to the fifth position. Wait since when was that ever there??!!</span>")
+				aggressiveness = 5
+				phrase = 19
+			if(5)
 				to_chat(user, "<span class='notice'>You set the aggressiveness restrictor to the first position.</span>")
 				aggressiveness = 1
 				phrase = 1
-			if(5)
+			if(6)
 				to_chat(user, "<span class='warning'>You adjust the restrictor but nothing happens, probably because its broken.</span>")
 	else if(istype(W, /obj/item/weapon/wirecutters))
-		if(aggressiveness != 5)
+		if(aggressiveness != 6)
 			to_chat(user, "<span class='warning'>You broke it!</span>")
-			aggressiveness = 5
+			aggressiveness = 6
 	else
 		..()
 
@@ -486,6 +534,48 @@
 			if(18)
 				phrase_text = "I am, the LAW!"
 				phrase_sound = "dredd"
+            if(19)
+				phrase_text = "You call this resisting arrest??!!"
+				phrase_sound = "resistingarrest"
+			if(20)
+				phrase_text = "The safeword is police brutality!"
+				phrase_sound = "safeword"
+			if(21)
+				phrase_text = "You call this putting up a fight?"
+				phrase_sound = "youcallthisafight"
+			if(22)
+				phrase_text = "We gotta stop meeting like this you know?"
+				phrase_sound = "wegottastopmeetinglikethis"
+			if(23)
+				phrase_text = "I'm gonna beat the cellulites out of you!"
+				phrase_sound = "cellulite"
+			if(24)
+				phrase_text = "You wanted me back, so I'm back!"
+				phrase_sound = "youwantedmeback"
+			if(25)
+				phrase_text = "You got what was coming for ya!"
+				phrase_sound = "deserved"
+			if(26)
+				phrase_text = "You asked for it!"
+				phrase_sound = "youaskedforit"
+			if(27)
+				phrase_text = "Listen here, I got this drum solo I've been working on!"
+				phrase_sound = "drumsolo"
+			if(28)
+				phrase_text = "What's left after you beat the shit out of a peice of shit??!!"
+				phrase_sound = "whatsleftifyoubeattheshit"
+			if(29)
+				phrase_text = "Not so tough now huh??!!"
+				phrase_sound = "notsotough"
+			if(30)
+				phrase_text = "We call this a difficulty tweak!"
+				phrase_sound = "difficultytweak"
+			if(31)
+				phrase_text = "Sometimes wishes do come true!"
+				phrase_sound = "wishes"
+			if(32)
+				phrase_text = "Now go to the forums and cry like the little bitch you are!"
+				phrase_sound = "nowgototheforums"
 
 		usr.visible_message("[usr]'s Compli-o-Nator: <font color='red' size='4'><b>[phrase_text]</b></font>")
 		playsound(src.loc, "sound/voice/complionator/[phrase_sound].ogg", 100, 0, 4)
