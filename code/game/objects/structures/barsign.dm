@@ -160,6 +160,10 @@
 	icon = "theharmbaton"
 	desc = "A great dining experience for both security members and assistants."
 
+/datum/barsign/bartsomba
+	name = "Bar Tsomba"
+	icon = "bartsomba"
+	desc = "Explosively delicious, (nu)clearly the best."
 
 /datum/barsign/thesingulo
 	name = "The Singulo"
