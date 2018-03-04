@@ -72,8 +72,8 @@
 	icon_state = "flashtato"
 	filling_color = "#E9927A"
 	bitesize = 20
-	var/light_power = 10
-	var/light_color = LIGHT_COLOR_WHITE
+	light_power = 10
+	light_color = LIGHT_COLOR_WHITE
 	var/light_time = 2
 	var/power = 0
 
@@ -187,8 +187,8 @@
 		else
 			if(M.ear_damage >= 5)
 				to_chat(M, "<span class='warning'>Your ears start to ring!</span>")
-				
-	
+
+
 // Sweet Potato
 /obj/item/seeds/potato/sweet
 	name = "pack of sweet potato seeds"
