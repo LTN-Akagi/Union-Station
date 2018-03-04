@@ -1701,7 +1701,7 @@
 	name = "Thigh-high Striped"
 	icon_state = "striped_thigh"
     
-/datum/sprite_accessory/socks/striped_thigh
+/datum/sprite_accessory/socks/striped2_thigh
 	name = "Thigh-high Striped(Pink/Purple)"
 	icon_state = "striped2_thigh"
 
